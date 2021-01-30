@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
   MACHINES.each do |boxname, boxconfig|
     # Disable shared folders
     config.vm.synced_folder ".", "/vagrant", disabled: true
+    config.vm.synced_folder "/installs/Vagrant/Vagrant_sync/centos7", "/home/vagrant/vagrant_data"	
     # Apply VM config
     config.vm.define boxname do |box|
       # Set VM base box and hostname
