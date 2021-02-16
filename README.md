@@ -83,9 +83,9 @@ vagrant sandbox commit - зафиксировали изменения, чтоб
 
 Проделаем действия, "только инсталяции нового ядра ( загрузчик не нужно обновлять )",  из пункта " Полуавтоматическая установка ядра", чтоб скопировать готовый .config файл для конфигурации нового ядра :) 
 
-*           cp /boot/config-`uname -r` /usr/src/kernel/linux-5.10.11/.config
+*   cp /boot/config-`uname -r` /usr/src/kernel/linux-5.10.11/.config
 или
-*           cp /boot/config-5.10.11....   /usr/src/kernel/linux-5.10.11/.config     
+*   cp /boot/config-5.10.11....   /usr/src/kernel/linux-5.10.11/.config     
 
 ядро  kernel-ml 5.10.11 можно удалить 
 
@@ -127,13 +127,13 @@ make menuconfig - конфигурация ядра, через текстово
 
 Обновляем конфигурацию загрузчика:
 
-*                       sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+*   sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 Выбираем загрузку с новым ядром по-умолчанию:
 
-*                       sudo grub2-set-default 0        <------- * данной настройкой мы говорим загрузчику использовать первое ядро для загрузки (первым идет последнее по версии ядро).
-*                       или
-*                       sudo grubby --set-default /boot/config-5.10.11    <---- прямо указываем какое ядро будет "default"
+*   sudo grub2-set-default 0        <------- * данной настройкой мы говорим загрузчику использовать первое ядро для загрузки (первым идет последнее по версии ядро).
+*   или
+*   sudo grubby --set-default /boot/config-5.10.11    <---- прямо указываем какое ядро будет "default"
                            
 
 
@@ -151,7 +151,7 @@ vagrant box add --name <box-name> <some-box-file-name.box>
 
 Дл загрузки готового образ, созданного packer-ом в репозиторий VagrantCloud, необходимо предварительно создать репозиторий с таким именем, например:
 
-        vagrant cloud publish  --release --force  ashum1976/centos-7-5 29.01.2021  virtualbox  centos-7.7.1908-kernel-5-x86_64-Minimal.box 
+    vagrant cloud publish  --release --force  ashum1976/centos-7-5 29.01.2021  virtualbox  centos-7.7.1908-kernel-5-x86_64-Minimal.box 
 
 где:
  -  cloud publish - загрузить образ в облако;
