@@ -42,7 +42,7 @@ vagrant ssh
 
 -           В процессе сборки выяснилось, что gcc, установленный в дистрибутиве centos7 староват для сборки этой версии ядра, поэтому была установлена немного новее версия gcc-7.4.0.tar.gz (спасибо                                                                                                                   сокурснику Nikolay Malinin  подкинул ссылку для установки https://stackoverflow.com/questions/36327805/how-to-install-gcc-5-3-with-yum-on-centos-7-2), можно и новее поставить, но хватит и этой версии.                Качаем забрасываем на гостевую систему, в домашний каталог пользователя scp -P 2222 vagrant@127.0.0.1:~
 
-\\               Собираем новый gcc, процесс не сложный, по ссылке есть описание (для сборки понадобится текущий gcc и gcc-c++):
+              Собираем новый gcc, процесс не сложный, по ссылке есть описание (для сборки понадобится текущий gcc и gcc-c++):
 
 -               yum install libmpc-devel mpfr-devel gmp-devel zlib-devel - пакеты для сборки
 -               tar -xzj "путь где файл лежит" -C "куда распаковать"
@@ -53,13 +53,13 @@ vagrant ssh
 
 Устанавливается новый gcc /usr/local/bin, библиотеки в:
 
-\\              /usr/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/plugin
-\\              /usr/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0
-\\              /usr/local/lib64
+                /usr/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/plugin
+                /usr/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0
+                /usr/local/lib64
 
 Создаём файл в папке /etc/ld.so.conf.d/gcc.conf  и прописываем полученные пути для библиотек. Для root-a правим переменную $PATH, в файле .bash_profile 
 
-\\              PATH="/usr/local/bin:/opt/bin:$PATH"
+              PATH="/usr/local/bin:/opt/bin:$PATH"
 
 vagrant sandbox commit - зафиксировали изменения, чтоб в случае чего откатится на эту точку, и не ставить по новой gcc и т.д.
 
