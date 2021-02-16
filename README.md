@@ -151,7 +151,7 @@ vagrant box add --name <box-name> <some-box-file-name.box>
 
 Дл загрузки готового образ, созданного packer-ом в репозиторий VagrantCloud, необходимо предварительно создать репозиторий с таким именем, например:
 
-                        vagrant cloud publish  --release --force  ashum1976/centos-7-5 29.01.2021  virtualbox  centos-7.7.1908-kernel-5-x86_64-Minimal.box 
+        vagrant cloud publish  --release --force  ashum1976/centos-7-5 29.01.2021  virtualbox  centos-7.7.1908-kernel-5-x86_64-Minimal.box 
 
 где:
  -  cloud publish - загрузить образ в облако;
